@@ -4,7 +4,6 @@ import numpy as np
 from scipy import ndimage
 from scipy.interpolate import interpn
 import matplotlib.pyplot as plt
-#from mayavi import mlab
 
 # -----------------------------------------------------------------------------
 # arguments: t_start, direction, scale, delta, inttime, method
@@ -105,7 +104,8 @@ def set_vel(tt):
             delt*(t_jump+direction), v1, v, tt*delta*direction)
     velt[:,:,:,2] = interp(delt*t_jump, \
             delt*(t_jump+direction), w1, w, tt*delta*direction)
-    #print delt*t_jump, tt*delta*direction, delt*(t_jump+direction)
+
+    # interpolate without scipy library
     # for i in range(0,nx):
     #     for j in range(0,ny):
     #         for k in range(0,nz):
@@ -164,6 +164,7 @@ def update_traj(method):
         traj_y += k1y/6 + k2y/3 + k3y/3 + k4y/6
         traj_z += k1z/6 + k2z/3 + k3z/3 + k4z/6
 
+    # interpolate without scipy library
     # for i in range(0,ox):
     #     for j in range(0,oy):
     #         for k in range(0,oz):
