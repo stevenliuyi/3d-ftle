@@ -301,19 +301,6 @@ def eigs(xd1, xd2, yd1, yd2, zd1, zd2, x01, x02, y01, y02, z01, z02):
     return w
 
 # -----------------------------------------------------------------------------
-# identify LCSs
-def get_lcs(percent):
-    global lcs
-    ftle_max = np.nanmax(ftle)
-    for i in range(0,ox):
-        for j in range(0,oy):
-            if (ftle[i][j]>percent*ftle_max):
-                lcs[i][j] = 1.
-            else:
-                lcs[i][j] = 0.
-    return 
-
-# -----------------------------------------------------------------------------
 # write FTLE data to files
 def write_ftle():
     np.save('ftle.npy', ftle)
